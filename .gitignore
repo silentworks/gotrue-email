@@ -1,0 +1,8 @@
+.env*
+vendor/
+gotrue-email
+gotrue-email-arm64
+
+.DS_Store
+.vscode
+.data
