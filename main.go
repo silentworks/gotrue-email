@@ -48,7 +48,7 @@ func main() {
 	})
 
 	srv := http.Server{
-		Addr:         ":3000",
+		Addr:         ":8088",
 		ReadTimeout:  5 * time.Second,
 		WriteTimeout: 10 * time.Second,
 	}

@@ -10,5 +10,5 @@ FROM scratch
 WORKDIR /app
 COPY --from=build /opt/gotrue-email /app/gotrue-email
 COPY --from=build /app/templates /app/templates
-EXPOSE 8080
+EXPOSE 8088
 ENTRYPOINT ["/app/gotrue-email"]

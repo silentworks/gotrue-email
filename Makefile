@@ -27,7 +27,7 @@ docker-build:
 	docker build --rm -t gotrue-email:$(VERSION) .
 
 docker-run:
-	docker run -d -p 8080:3000 --name gotrue-email-$(VERSION) gotrue-email:$(VERSION)
+	docker run -d -p 3000:8088 --name gotrue-email-$(VERSION) gotrue-email:$(VERSION)
 
 format:
 	gofmt -s -w .
