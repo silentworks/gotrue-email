@@ -1,11 +1,10 @@
 name: Build and Release on Push to Master
 
 on:
-  workflow_dispatch:
-
-  workflow_run:
-    workflows: []
-    types: [completed]
+  push:
+    branches:
+      - main
+  pull_request:
     branches:
       - main
 
