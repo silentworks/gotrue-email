@@ -3,9 +3,9 @@ package main
 import (
 	"fmt"
 	"net/http"
+	"time"
 
 	"github.com/caarlos0/env/v8"
-	"github.com/joho/godotenv"
 )
 
 type Config struct {
@@ -17,7 +17,6 @@ type Config struct {
 }
 
 func main() {
-	godotenv.Load()
 	cfg := Config{}
 	if err := env.Parse(&cfg); err != nil {
 		fmt.Printf("%+v\n", err)
@@ -48,5 +47,13 @@ func main() {
 		http.ServeFile(w, r, cfg.TEMPLATES_EMAIL_CHANGE)
 	})
 
-	http.ListenAndServe(":3000", nil)
+	srv := http.Server{
+		Addr:         ":3000",
+		ReadTimeout:  5 * time.Second,
+		WriteTimeout: 10 * time.Second,
+	}
+
+	if err := srv.ListenAndServe(); err != nil {
+		fmt.Printf("Server failed: %s\n", err)
+	}
 }
